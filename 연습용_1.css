@@ -1,21 +1,31 @@
 
 * {box-sizing: border-box; margin: 0;}
 header {height: 100px;}
-.main {display: flex;}
+#main {
+    display: flex; justify-content: flex-start;
+    position: relative;
+}
+.menu {
+    width: 200px; background-color: rgb(193, 131, 255);
+    position: fixed; top: 110px; padding: 10px;
+}
+.menu p {padding: 5px; border-radius: 10px; font-weight: 700; margin-top: 10px;}
+.menu p:hover {
+    background-color: rgb(207, 160, 255); 
+    font-size: 16pt; color: white;
+}
+.menu p:active {background-color: rgb(226, 195, 255);}
+
 section {
     width: 80%; border: 2px solid black;
-    margin-left: auto; margin-right: auto;
+    margin-left:220px; margin-right: 20px; margin-top: 10px;
 }
-.img_box {
-    width: 100%; padding-left: 5%; padding-right: 5%;
-}
-.comment {
-    width: 100%;
-}
+.img_box {width: 100%; padding-left: 5%; padding-right: 5%;}
+.comment {width: 100%;}
 
+.input {display: flex; justify-content: start; height: 30px;}
 input {width: 100%;}
+button {width: 70px;}
 
-.comment_box {
-    width: 100%; border: 1px solid gray;
-}
-.user img {border-radius: 50%; width: 30px; height: 30px;}
+.comment_box {width: 100%; border: 1px solid gray; padding: 10px;}
+.user img {border-radius: 50%; width: 30px; height: 30px; margin-right: 5px;}
