@@ -26,7 +26,7 @@
             <div class="img_box">
                 <p>Lorem ipsum dolor sit amet consectetur.</p>
                 <img src="https://i.namu.wiki/i/vflegF2Ae04mQJga99qKTap6jJUHhI_lxFZUrMKX-v2YCF4yjt5rIE3Nv5Hf8BJ68uepGvwoMk-qGJvIAaG6hQ.webp" alt="" width="100%">
-                <i class="material-icons">favorite_border</i>
+                <i class="material-icons like">favorite_border</i>
                 <i class="material-icons">add</i>
             </div>
             <div class="input">
@@ -36,7 +36,9 @@
             <hr>
             <div class="comment">
                 <div class="comment_box">
-                    <div class="user"><img src="https://tiermaker.com/images/media/template_images/2024/15856531/sols-rng-aura-tier-list-15856531/archangel.png" alt=""><span>Lorem.</span></div>
+                    <div class="user"><img src="https://i.namu.wiki/i/y9j-qrzPmVXZDLnujbHOmG7lCDasyj09VfyH5wgOKohx4RlvhCaALi4LDfFo-liWFKhDem9hc7xe_BXEWeHjmQ.webp" alt="">
+                        <span>Lorem.</span>
+                    </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     <i class="material-icons">favorite_border</i>
                 </div>
@@ -45,9 +47,67 @@
     </div>
     
     <script>
-        let 게시물_좋아요버튼 
+        let 게시물_하트 = document.querySelector('.like')
+        게시물_하트.addEventListener('click', () => {
+            if(게시물_하트.textContent == 'favorite_border') {
+                게시물_하트.textContent = 'favorite'
+                게시물_하트.style.color = 'pink'
+            }
+            else if (게시물_하트.textContent == 'favorite') {
+                게시물_하트.textContent = 'favorite_border'
+                게시물_하트.style.color = 'black'
+            }
+        })
+
+        // 댓글
         const 댓글입력 = document.querySelector('input')
         const 댓글창 = document.querySelector('.comment')
+        const 버튼 = document.querySelector('button')
+
+        버튼.addEventListener('click', () => {
+            // 댓글 생성
+            let 댓글 = document.createElement('div')
+            댓글.classList.add('comment_box')
+            댓글창.appendChild(댓글)
+
+            // 프로필
+            let 프로필 = document.createElement('div')
+            프로필.classList.add('user')
+            // 프사
+            let 사진 = document.createElement('img')
+            사진.setAttribute('src','https://i.namu.wiki/i/y9j-qrzPmVXZDLnujbHOmG7lCDasyj09VfyH5wgOKohx4RlvhCaALi4LDfFo-liWFKhDem9hc7xe_BXEWeHjmQ.webp')
+            // 유저이름
+            let 닉네임 = document.createElement('span')
+            닉네임.textContent = '테스터#1'
+
+            프로필.appendChild(사진)
+            프로필.appendChild(닉네임)
+            댓글.appendChild(프로필)
+
+            // 댓글 내용
+            let 댓글내용 = document.createElement('p')
+            댓글내용.textContent = 댓글입력.value
+            댓글.appendChild(댓글내용)
+            댓글입력.value = ''
+
+            // 좋아요 버튼
+            let 댓좋아요 = document.createElement('i')
+            댓좋아요.classList.add('material-icons')
+            댓좋아요.textContent = 'favorite_border'
+            댓글.appendChild(댓좋아요)
+
+            // 좋아요 버튼 기능 구현
+            댓좋아요.addEventListener('click', () => {
+                if (댓좋아요.textContent == 'favorite_border') {
+                    댓좋아요.textContent = 'favorite'
+                    댓좋아요.style.color = 'pink'
+                }
+                else if (댓좋아요.textContent == 'favorite') {
+                    댓좋아요.textContent = 'favorite_border'
+                    댓좋아요.style.color = 'black'
+                }
+            })
+        })
 
         
     </script>

@@ -9,7 +9,10 @@ header {height: 100px;}
     width: 200px; background-color: rgb(193, 131, 255);
     position: fixed; top: 110px; padding: 10px;
 }
-.menu p {padding: 5px; border-radius: 10px; font-weight: 700; margin-top: 10px;}
+.menu p {
+    padding: 5px; border-radius: 10px; font-weight: 700; margin-top: 10px;
+    cursor: pointer;
+}
 .menu p:hover {
     background-color: rgb(207, 160, 255); 
     font-size: 16pt; color: white;
@@ -20,12 +23,13 @@ section {
     width: 80%; border: 2px solid black;
     margin-left:220px; margin-right: 20px; margin-top: 10px;
 }
-.img_box {width: 100%; padding-left: 5%; padding-right: 5%;}
+.img_box {width: 100%; padding: 5%;}
 .comment {width: 100%;}
 
 .input {display: flex; justify-content: start; height: 30px;}
 input {width: 100%;}
-button {width: 70px;}
+button {width: 70px; cursor: pointer;}
 
 .comment_box {width: 100%; border: 1px solid gray; padding: 10px;}
-.user img {border-radius: 50%; width: 30px; height: 30px; margin-right: 5px;}
+.user img {border-radius: 50%; width: 7%; margin-right: 5px;}
+i {cursor: pointer;}
