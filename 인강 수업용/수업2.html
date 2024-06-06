@@ -5,13 +5,10 @@
     </head>
     <body>
         <form>
-            <input type="file" accept=".png, .pdf"> <!--accept="" : 따옵표 안에 있는 파일 형식만 선택할 수 있게 함 -->
-                                              <!-- .pdf, .png, images(이미지 파일이면 모두 가능)-->
-            <!-- <input type="color"> : 색상-->
-            <input required placeholder="Name" type="text"> <!-- disabled : 상호작용이 안됨 (입력, 제출버튼 비활성화 시킴)-->
-            <input required placeholder="Last Name" type="text"> <!-- required : 입려란이 비어있으면 제출 안되게 해줌-->
-            <input required placeholder="Username" type="text">
-            <input required placeholder="password" minlength="10" type="password"> <!-- minlength="10" : 따옴표 안에 있는 숫자 이상의 글자를 입력해야 제출 가능-->
+            <label for="website">Wepsite</label>
+            <input id="website" type="date"> <!-- id : 고유 식별자-->
+            <!-- type에 들어가는 거(추가) : url, email, range, date -->
+
             <input type="submit" value="Create Accont">
         </form>
     </body>
