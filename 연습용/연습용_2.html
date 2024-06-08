@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>연습용</title>
+    </head>
+    <bodu>
+        <script>
+            let list = [1, 'hi']
+            console.log(`현재 list: ${list}`)
+            console.log(list)
+            console.log('현재 리스트 길이:',list.length);
+
+            // 인덱스로 값 꺼내기
+            console.log('list의 인덱스 0번째:',list[0])
+            console.log('list의 인덱스 1번째:',list[1])
+
+            // 슬라이스
+            // slice(처음, 끝)  끝 전자리 까지만 포함
+            console.log('list 슬라이스',list.slice(0,1))
+
+            //push(추가할 것)
+            list.push(2)
+            console.log(list)
+
+            //pop(제거할 것)
+            list.pop()
+            console.log(list)
+
+            //splice()  ->  요소를 추가하거나 제거(ㅁㄹ?)
+
+            //concat()  ->  배열을 결합(ㅁㄹ?)
+
+            //indexOf()  ->  지정한 요소의 인덱스를 반환
+            //include()  ->  요소가 리스트에 들어있는지 확인
+            //reduse()  ->  (ㅁㄹ?)
+        </script>
+    </bodu>
+</html>
