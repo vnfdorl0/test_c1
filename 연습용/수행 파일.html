@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8_조은영</title>
+    <style>
+        * {box-sizing: border-box; margin: 0;}
+        body {
+            background:linear-gradient(to bottom,#4a84cb, #76c4fb, #76cffb, #ffffff);
+            background-repeat: no-repeat; 
+        }
+
+        header {position: fixed; top: 0; margin-left: 10px; text-align: center;}
+        .logo {
+            width: 120px; height: 60px; 
+            color: rgb(255, 255, 255); 
+            font-size: 35px; font-weight: 600;
+            text-shadow: 2px 3px 4px rgb(46, 65, 92);
+            letter-spacing: 5px;
+        }
+        #chose {
+            border-radius: 12px; border: 2px solid black;
+            width: 120px; height: 40px; font-size: 19px;
+            cursor: pointer; font-weight: 600;
+            box-shadow: 2px 3px 4px rgb(67, 92, 158);
+        }
+
+        #weather {
+            width: 830px; height: 550px; 
+            margin: 12% auto;
+            background-color: rgba(130, 220, 255, 0.352);
+            border-radius: 30px; padding: 20px;
+            border: 5px solid rgb(42, 107, 186);
+        }
+        #city_name {
+            text-align: center; font-size: 45px; 
+            font-weight:600;
+        }
+        section { display: flex; justify-content: center;}
+        section > div {margin-right: 30px;}/* border: black 1px solid; */
+        .p {font-size: 28px; line-height: 50px;}
+        #w_box1 {
+            text-align: center; 
+            width: 350px; height: 400px;
+        } 
+        #w_box2 {
+            background-color: #caedff; border-radius: 10px;
+            width: 280px; height: 200px;
+            padding: 20px 20px; margin-top: 80px;
+        }
+        img {transform: translate(-65px, -60px);}
+        .w {transform: translate(0, -120px);}
+        
+        #c{color:rgb(165, 165, 165);}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">날씨앱</div>
+        <select name="" id="chose">
+            <option value="city_chose" id="c">도시 선택</option>
+            <option value="Seoul">서울</option>
+            <option value="Busan">부산</option>
+            <option value="Tokyo">도쿄</option>
+            <option value="London">런던</option>
+            <option value="Sydney">시드니</option>
+        </select>
+     </header>
+         
+    <div id="weather">
+        <p id="city_name">도시이름</p>
+        <section>
+            <div id="w_box1">
+                <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="" width="480px">
+                <p class="p w">현재 온도: <span id="temp"></span>˚</p>
+            </div>
+            <div id="w_box2">
+                <p class="p">체감 온도: <span id="feels"></span>˚</p>
+                <p class="p">풍속: <span id="speed"></span></p>
+                <p class="p">습도: <span id="humidity"></span></p>
+             </div>
+         </section>
+    </div>
+    <footer></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const 선택 = document.querySelector("#chose")
+        선택.addEventListener("change", function() {
+            const 도시이름 = document.querySelector('#city_name')
+
+            const 현재온도 = document.querySelector("#temp")
+            const 체감온도 = document.querySelector("#feels")
+            const 풍속 = document.querySelector("#speed")
+            const 습도 = document.querySelector("#humidity")
+
+            let 아이콘 = document.querySelector("img")
+
+            let 배경 = document.querySelector('body')
+
+
+            if (선택.value == "city_chose") {
+                도시이름.textContent = "도시이름"
+                현재온도.textContent = ""
+                체감온도.textContent = ""
+                풍속.textContent = ""
+                습도.textContent = ""
+                아이콘.setAttribute("src", "https://openweathermap.org/img/wn/01d@2x.png")
+                배경.style.background = 'linear-gradient(to bottom,#4a84cb, #76c4fb, #76cffb, #ffffff)'
+            }
+            else{
+                axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${선택.value}&appid=247b57b92b930e7d0aa60939843a7892`)
+                .then(function(response) {
+                    도시이름.textContent = 선택.value
+                    // 날씨 데이터
+                    console.log(response)
+                    console.log(response.data.main)
+
+                    // 날씨 출력
+                    현재온도.textContent = (response.data.main.temp - 275).toFixed(1)
+                    체감온도.textContent = (response.data.main.feels_like - 275).toFixed(1)
+                    풍속.textContent = response.data.wind.speed
+                    습도.textContent = response.data.main.humidity
+
+                    // 날씨 아이콘
+                    let 코드 = response.data.weather[0].icon
+                    console.log(코드) // 확인용
+                    아이콘.setAttribute("src", `https://openweathermap.org/img/wn/${코드}@2x.png`)
+                    
+                    if (코드[2] == 'n') {
+                        let 배경 = document.querySelector('body')
+                        배경.style.background = 'linear-gradient(to bottom,#100631, #551dd7, #a06bf0, #ffffff)'
+                    }
+                    else if (코드[2] == 'd') {
+                        배경.style.background = 'linear-gradient(to bottom,#4a84cb, #76c4fb, #76cffb, #ffffff)'
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+</html>
