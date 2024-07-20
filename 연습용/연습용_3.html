@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>문제</h2>
+    <div>
+        <select name="" id="">
+            <option value="0">곱셈 선택</option>
+            <option value="2">2단</option>
+            <option value="3">3단</option>
+            <option value="4">4단</option>
+            <option value="5">5단</option>
+            <option value="6">6단</option>
+            <option value="7">7단</option>
+            <option value="8">8단</option>
+            <option value="9">9단</option>
+        </select>
+    </div>
+    
+    <p></p>
+    <input id="input_" type="text" placeholder="입력칸">
+    <button id="button_">제출</button>
+
+    <script>
+        const 입력 = document.querySelector("#input_")
+        const 버튼 = document.querySelector('#button_')
+        const 문제 = document.querySelector('p')
+        const 선택 = document.querySelector('select')
+
+        const dv = document.querySelector('div')
+        let 시작 = document.createElement('button')
+        시작.classList.add('start')
+
+        let a
+        let b
+        let 갯수
+        선택.addEventListener('change', () => {
+            a = 선택.value
+            b = 1
+            갯수 = 0
+            문제.textContent = ''
+            시작.textContent = '시작'
+            dv.appendChild(시작)
+
+        })
+        let c
+        
+        시작.addEventListener('click', () => {
+            if (a == 0) {
+                문제.textContent = '곱셈을 선택해주세요'
+            }
+            else if (a>=2 && a <=9) {
+                dv.removeChild(시작)
+                문제.textContent = `${a} x ${b} = ?`
+                }
+                
+            }
+        )
+        버튼.addEventListener('click', ()=>{
+            c = a*b
+            if (b >= 9) {
+                문제.textContent = `${a}단이 끝났습니다.`
+            }
+            else if(입력.value == c) {
+                b += 1
+                입력.value = ''
+                문제.textContent = `${a} x ${b} = ?`
+            }
+            
+        })
+        
+
+    </script>
+</body>
+</html>
