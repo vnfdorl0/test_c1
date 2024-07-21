@@ -3,32 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>곱셈 풀기</title>
 
     <style>
-
+        #main {
+            width: 400px; height: 200px;
+            margin: auto; text-align: center;
+            background-color: rgb(255, 181, 196);
+            border-radius: 15px;
+            padding: 10px;
+        }
+        select {
+            width: 120px; height: 30px;
+            font-size:13pt; border-radius: 20px;
+        }
+        #input_ {
+            width: 150px; height: 30px;
+            border: 3px solid rgb(193, 0, 0);
+            border-radius: 10px;
+        }
+        #op {color: rgb(170, 170, 170);}
     </style>
 </head>
 <body>
-    <div id="main"></div>
-    <h2>문제</h2>
-    <div id="dv">
-        <select name="" id="">
-            <option value="0">곱셈 선택</option>
-            <option value="2">2단</option>
-            <option value="3">3단</option>
-            <option value="4">4단</option>
-            <option value="5">5단</option>
-            <option value="6">6단</option>
-            <option value="7">7단</option>
-            <option value="8">8단</option>
-            <option value="9">9단</option>
-        </select>
+    <div id="main">
+        <h2>문제</h2>
+        <div id="dv">
+            <select name="" id="">
+                <option id="op" value="0">곱셈 선택</option>
+                <option value="2">2단</option>
+                <option value="3">3단</option>
+                <option value="4">4단</option>
+                <option value="5">5단</option>
+                <option value="6">6단</option>
+                <option value="7">7단</option>
+                <option value="8">8단</option>
+                <option value="9">9단</option>
+            </select>
+        </div>
+        
+        <p></p>
+        <input id="input_" type="text" placeholder="입력칸">
+        <button id="button_">제출</button>
     </div>
-    
-    <p></p>
-    <input id="input_" type="text" placeholder="입력칸">
-    <button id="button_">제출</button>
 
     <script>
         const 입력 = document.querySelector("#input_")
