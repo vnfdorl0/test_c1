@@ -96,6 +96,20 @@
             
         })
         
+        입력.addEventListener('keydown', (ev)=>{
+            if (ev.code == 'Enter' ||  ev.code == 'Space') {
+                c = a*b
+                if (b >= 9) {
+                    문제.textContent = `${a}단이 끝났습니다.`
+                    입력.value = ''
+                }
+                else if(입력.value == c) {
+                    b += 1
+                    입력.value = ''
+                    문제.textContent = `${a} x ${b} = ?`
+                }
+            }
+        })
 
     </script>
 </body>
