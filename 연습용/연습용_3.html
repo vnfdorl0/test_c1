@@ -4,52 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>곱셈 풀기</title>
-
-    <style>
-        #main {
-            width: 400px; height: 200px;
-            margin: auto; text-align: center;
-            background-color: rgb(255, 181, 196);
-            border-radius: 15px;
-            padding: 10px;
-        }
-        select {
-            width: 120px; height: 30px;
-            font-size:13pt; border-radius: 20px;
-        }
-        #input_ {
-            width: 150px; height: 30px;
-            border: 3px solid rgb(193, 0, 0);
-            border-radius: 10px;
-        }
-        #op {color: rgb(170, 170, 170);}
-    </style>
+    <link rel="stylesheet" href="연습3.css">
 </head>
 <body>
     <div id="main">
-        <h2>문제</h2>
-        <div id="dv">
-            <select name="" id="">
-                <option id="op" value="0">곱셈 선택</option>
-                <option value="2">2단</option>
-                <option value="3">3단</option>
-                <option value="4">4단</option>
-                <option value="5">5단</option>
-                <option value="6">6단</option>
-                <option value="7">7단</option>
-                <option value="8">8단</option>
-                <option value="9">9단</option>
-            </select>
+        <div>
+            <h2>문제</h2>
+            <div id="dv">
+                <select name="" id="">
+                    <option id="op" value="0">곱셈 선택</option>
+                    <option value="2">2단</option>
+                    <option value="3">3단</option>
+                    <option value="4">4단</option>
+                    <option value="5">5단</option>
+                    <option value="6">6단</option>
+                    <option value="7">7단</option>
+                    <option value="8">8단</option>
+                    <option value="9">9단</option>
+                </select>
+            </div>
+            
+            <p></p>
+            <input id="input_" type="text" placeholder="답 입력 후 제출">
+            <button id="button_">제출</button>
         </div>
-        
-        <p></p>
-        <input id="input_" type="text" placeholder="답 입력 후 제출">
-        <button id="button_">제출</button>
+    </div>
+
+    <div id="testing_div">
+        <!--시험 문제 넣을 구역-->
+        <!--아직 미구현-->
     </div>
 
     <script>
         const 입력 = document.querySelector("#input_")
-        const 버튼 = document.querySelector('#button_')
+        const 제출버튼 = document.querySelector('#button_')
         const 문제 = document.querySelector('p')
         const 선택 = document.querySelector('select')
 
@@ -71,7 +59,7 @@
         })
         let c
         
-        시작.addEventListener('click', () => {
+        시작.addEventListener('click', () => { // 시작버튼
             if (a == 0) {
                 문제.textContent = '곱셈을 선택해주세요'
             }
@@ -82,13 +70,13 @@
                 
             }
         )
-        버튼.addEventListener('click', ()=>{
+        제출버튼.addEventListener('click', ()=>{
             c = a*b
-            if (b >= 9) {
+            if (b >= 9) { // 9개의 문제가 끝났을 때
                 문제.textContent = `${a}단이 끝났습니다.`
                 입력.value = ''
             }
-            else if(입력.value == c) {
+            else if(입력.value == c) { // 입력한 답이 맞을 경우
                 b += 1
                 입력.value = ''
                 문제.textContent = `${a} x ${b} = ?`
@@ -96,7 +84,7 @@
             
         })
         
-        입력.addEventListener('keydown', (ev)=>{
+        입력.addEventListener('keydown', (ev)=>{ // 제출버튼 외에 엔터나 스페이스키로도 제출
             if (ev.code == 'Enter' ||  ev.code == 'Space') {
                 c = a*b
                 if (b >= 9) {

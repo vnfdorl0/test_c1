@@ -1,0 +1,23 @@
+* {box-sizing: border-box;}
+#main {
+    width: 420px; height: 220px;
+    margin: auto; text-align: center;
+    background-color: rgb(255, 181, 196);
+    border-radius: 15px;
+    padding: 10px;
+}
+#main > div {
+    width: 400px; height: 200px; 
+    border: 2px solid white;
+    border-radius: 10px;
+}
+select {
+    width: 120px; height: 30px;
+    font-size:13pt; border-radius: 20px;
+}
+#input_ {
+    width: 150px; height: 30px;
+    border: 3px solid rgb(193, 0, 0);
+    border-radius: 10px;
+}
+#op {color: rgb(170, 170, 170);}
