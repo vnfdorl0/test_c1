@@ -3,6 +3,10 @@
 <head>
     <title>Document</title>
     <style>
+        :root {
+            --main-color: #fcce00;
+            --default-border: 1px solid var(--main-color);
+        }
         body {
             height: 300vh;
             margin: 20px;
@@ -12,22 +16,19 @@
             border-radius: 5px;
             padding: 5px;
         }
-        input::placeholder {
-            color: yellowgreen;
+        p {
+            background-color: var(--main-color);
         }
-        p::first-line {
-            background-color: yellowgreen;
-            color: white;
-            font-size: 50px;
+        a {
+            color: var(--main-color);
+            border: var(--default-border);
         }
     </style>
 </head>
 <body>
-    <form>
-        <input type="text" placeholder="Name">
-    </form>
     <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, reprehenderit.
     </p>
+    <a href="#">website</a>
 </body>
 </html>
