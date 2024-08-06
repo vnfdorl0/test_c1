@@ -10,22 +10,22 @@
         div {
             width: 250px;
             height: 250px;
-            
-        }
-        #green {
-            background-color: teal;
-            color: white;
-            position: fixed;
-            opacity: 0.5;
-        }
-        #different {
             background-color: wheat;
-            width: 250px;
+            position: static;
+            position: relative;
+        }
+        .green {
+            background-color: teal;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            right: 0px;
         }
     </style>
 </head>
 <body>
-    <div id="green"></div>
-    <div id="different"></div>
+    <div>
+        <div class="green"></div>
+    </div>
 </body>
 </html>
