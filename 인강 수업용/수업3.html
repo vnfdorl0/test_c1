@@ -9,26 +9,25 @@
         }
         span {
             color: tomato;
-            background-color: yellowgreen;
             border-radius: 5px;
             padding: 5px;
         }
-        form {
-            border: 1px solid salmon;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
+        input::placeholder {
+            color: yellowgreen;
         }
-        form:hover input:focus { /* :focus-within: 선택된 부모요소안에 있는 자식요소가 포커스되면 부모요소의 스타일을 바꿈 */
-        background-color: seagreen;
+        p::first-line {
+            background-color: yellowgreen;
+            color: white;
+            font-size: 50px;
         }
     </style>
 </head>
 <body>
     <form>
-        <input type="text">
-        <input type="text">
-        <input type="text">
+        <input type="text" placeholder="Name">
     </form>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, reprehenderit.
+    </p>
 </body>
 </html>
